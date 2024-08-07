@@ -1,0 +1,18 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: whatsapp
+  datasource:
+    url: jdbc:mysql://root:rjsiDViYccHTYGEHHTAcYxIJoBsRZSGF@monorail.proxy.rlwy.net:58972/railway
+    username: root
+    password: rjsiDViYccHTYGEHHTAcYxIJoBsRZSGF
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        enable_lazy_load_no_trans: true
+        format_sql: true
+    show-sql: true
