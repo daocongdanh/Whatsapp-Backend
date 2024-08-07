@@ -12,7 +12,7 @@ public interface MessageRepository extends JpaRepository<Message, Long> {
     List<Message> findAllByChat(Chat chat);
 
     @Query("select m from Message m where m.chat = ?1 " +
-            "and m.user != ?2 order by m.timeStamp desc limit 6")
+            "and m.user != ?2 and m.isSystem = false order by m.timeStamp desc limit 6")
     List<Message> findTop6MessageByChatAndUser(Chat chat, User user);
 
     @Query("select m from Message m where m.chat = ?1 " +
