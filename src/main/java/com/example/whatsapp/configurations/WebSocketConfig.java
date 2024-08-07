@@ -25,6 +25,6 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry.addEndpoint("/chat") // Client kết nối đến server
                 // const socket = new SockJS('http://localhost:8080/chat');
-                .setAllowedOrigins("http://localhost:3000", "https://whatsapp-two-pi.vercel.app/").withSockJS();
+                .setAllowedOrigins("http://localhost:3000", "https://whatsapp-two-pi.vercel.app").withSockJS();
     }
 }
