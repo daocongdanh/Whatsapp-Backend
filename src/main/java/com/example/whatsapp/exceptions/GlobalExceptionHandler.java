@@ -15,6 +15,16 @@ import java.util.List;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public ResponseEntity<ResponseError> handleException(Exception e){
+        return ResponseEntity.internalServerError().body(
+                ResponseError.builder()
+                        .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
+                        .message(e.getMessage())
+                        .build()
+        );
+    }
     @ExceptionHandler(ResourceNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResponseEntity<ResponseError> handleDataNotFoundException(ResourceNotFoundException e){
